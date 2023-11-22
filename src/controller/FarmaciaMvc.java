@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 
 public class FarmaciaMvc {
 
-    
     public static void main(String[] args) {
        
         Interface inter = new Interface(); 
