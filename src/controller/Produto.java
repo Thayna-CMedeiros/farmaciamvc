@@ -1,5 +1,6 @@
 package controller;
 
+import Dao.ProdutoDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,4 +44,11 @@ public class Produto {
         this.valor = valor;
     }
       
+    public void cadastrarProduto(Produto produto){
+      
+        ProdutoDao proDao = new ProdutoDao();
+        proDao.cadProduto(produto);
+        
+    }
+ 
 }

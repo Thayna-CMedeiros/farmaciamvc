@@ -16,7 +16,7 @@ public class ProdutoDao {
    PreparedStatement statement = null;
    ResultSet resultSet = null;
    
-    public void produtoD(){ 
+public void cadProduto(Produto produto){ 
         
     String sql = "INSERT INTO PRODUTO (nome, valor, descricao) VALUES ("
     + " '" + prod.getNome() + "' , "
@@ -55,7 +55,7 @@ public class ProdutoDao {
          try {
              if (resultSet != null) resultSet.close();
          } catch (SQLException e) {
-             e.printStackTrace(); // EXCESSAO SQL SE FECHAR
+             e.printStackTrace(); //EXCESSAO SQL SE FECHAR
          }
      }
 

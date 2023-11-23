@@ -127,7 +127,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     double valor = Double.parseDouble(jtValor.getText());
     prod.setValor(valor);
           
-     dao.produtoD();
+     prod.cadastrarProduto(prod);
 
     
     }//GEN-LAST:event_jbCadastraActionPerformed
