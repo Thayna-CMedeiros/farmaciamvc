@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Produto {
+public class ProdutoController {
     private int codigo;
     private String nome;
     private String descricao;
@@ -44,7 +44,7 @@ public class Produto {
         this.valor = valor;
     }
       
-    public void cadastrarProduto(Produto produto){
+    public void cadastrarProduto(ProdutoController produto){
       
         ProdutoDao proDao = new ProdutoDao();
         proDao.cadProduto(produto);

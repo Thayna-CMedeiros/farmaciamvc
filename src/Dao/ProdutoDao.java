@@ -1,14 +1,13 @@
 package Dao;
 
-import controller.Conexao;
-import controller.Produto;
+import controller.ProdutoController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProdutoDao {
-   Produto prod = new Produto();
+   ProdutoController prod = new ProdutoController();
    String url = "jdbc:mysql://localhost:3306/farmaciau";
    String usuario = "root";
    String senha = "";
@@ -16,7 +15,7 @@ public class ProdutoDao {
    PreparedStatement statement = null;
    ResultSet resultSet = null;
    
-public void cadProduto(Produto produto){ 
+public void cadProduto(ProdutoController produto){ 
         
     String sql = "INSERT INTO PRODUTO (nome, valor, descricao) VALUES ("
     + " '" + prod.getNome() + "' , "
@@ -24,16 +23,16 @@ public void cadProduto(Produto produto){
     + " '" + prod.getDescricao() + "')";
               
     System.out.println(sql);
-    Conexao.executar(sql);
+    ConexaoDao.executar(sql);
     
     }
     
-     public static Produto obterProdutoPorCodigo (int codigo){
+     public static ProdutoController obterProdutoPorCodigo (int codigo){
      String query = "SELECT * FROM PRODUTO WHERE codigo = ?";
      ResultSet resultSet = null;
-     Produto prod = null;
+     ProdutoController prod = null;
 
-     try (Connection conexao = Conexao.conectar();
+     try (Connection conexao = ConexaoDao.conectar();
           PreparedStatement preparedStatement = conexao.prepareStatement(query)) {
          preparedStatement.setInt(1, codigo);
          resultSet = preparedStatement.executeQuery();
@@ -41,7 +40,7 @@ public void cadProduto(Produto produto){
          // VERIF SE HÁ RESULTADOS
          if (resultSet != null && resultSet.next()) {
              //PREENCHE OBJETO CODIGO COM OS DADOS DO BANCO DE DADOS
-             prod = new Produto();
+             prod = new ProdutoController();
              prod.setCodigo(resultSet.getInt("codigo"));
              prod.setNome(resultSet.getString("nome"));
              prod.setDescricao(resultSet.getString("descricao"));

@@ -2,11 +2,11 @@
 package controller.view;
 
 import Dao.ProdutoDao;
-import controller.Produto;
+import controller.ProdutoController;
 
 public class CadastroProduto extends javax.swing.JFrame {
 
-    Produto prod = new Produto();
+    ProdutoController prod = new ProdutoController();
     ProdutoDao dao = new ProdutoDao();
     
     public CadastroProduto() {
